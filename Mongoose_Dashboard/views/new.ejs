@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Otter</title>
+</head>
+<body>
+	<fieldset>
+		<legend>Add a New Otter</legend>
+		<form method="post" action="/otters/new">
+			<label for="name">Name:</label>
+			<input type="text" name="name">
+			<label for="age">Age: </label>
+			<input type="text" name="age">
+			<input type="submit" name="submit" value="Create Otter">
+		</form>
+	</fieldset>
+	<% if(typeof(errors) != 'undefined'){%>
+			<% for(var e in errors){ %>
+				<p><%=errors[e].message %></p>
+			<% } %>
+		<% } %>
+	</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Otter</title>
+</head>
+<body>
+<form method="post" action="/otters/<%=otter.id %>">
+	<label for="name">Name:</label>
+	<input type="text" name="name" value="<%=otter.name%>">
+	<label for="age">Age:</label>
+	<input type="text" name="age" value="<%=otter.age%>">
+	<input type="submit" name="submit" value="Save Changes">
+</form>
+<a href="/">Discard Changes</a>
+</body>
+</html>

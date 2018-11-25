@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Otter Dashboard</title>
+</head>
+<body>
+	<h1>Welcome to the Otter Dashboard</h1>
+	<div id="dashboard">
+		<ul>
+			<li><a href="/otters/new/">Add new otter</a></li>
+		</ul>
+	</div>
+	<fieldset>
+		<legend>Otters:</legend>
+		<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th colspan="2">Actions</th>
+		</tr>
+		<% otters.forEach(function(otter){ %>
+		 	<div class="otter">
+				<tr>
+					<td><a href="otters/<%=otter._id %>"><%=otter.name %></a></td>
+					<td><%=otter.age %></td>
+					<td><a href="otters/edit/<%=otter._id%>">Edit Otter</a></td>
+					<td>
+						<form action="otters/delete/<%=otter._id%>" method="post"><input type="submit" value="Cast into Otter Darkness"></input></form>
+					</td>
+				</tr>
+			</div>
+		<% }); %>
+		</table>
+	</fieldset>
+
+</body>
+</html>

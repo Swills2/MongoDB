@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Message Board</title>
+</head>
+<body>
+<h1>The Dojo Message Board</h1>
+<hr>
+<div id="main">
+	<form action="/message" method="post">
+		<label for="name">Name: </label>
+		<input type="text" name="name">
+		<label for="messageText">Message: </label>
+		<textarea name="messageText"></textarea>
+		<input type="submit" name="submit" value="Post Message">
+	</form>
+	<hr>
+	<% messages.forEach(function(message){ %>
+		<div class="message">
+			<h3>Name: <%=message.name %></h3>
+			<h3>Message: <span class="messageText"><%=message.messageText %></span></h3>
+			<% for(var c=0; c < message.comments.length; c++) { %>
+				<div id="comment">
+					<p>Name: <%=message.comments[c].name %></p>
+					<p>Comment: <%=message.comments[c].commentText %></p>
+				</div>
+			<% } %>
+			<form action="/comment" method="post">
+				<label for="name">Name: </label>
+				<input type="text" name="name">
+				<label for="commentText">Comment: </label>
+				<textarea name="commentText"></textarea>
+				<input type="hidden" name="messageId" value="<%=message._id %>">
+				<input type="submit" name="submit" value="Post Comment">
+			</form>
+		</div>
+	<% }) %>
+</div>
+</body>
+</html>
